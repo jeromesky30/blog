@@ -26,6 +26,8 @@ Route::get('edit/{id}', [PostController::class, 'edit'])->name('edit');
 Route::post('update', [PostController::class, 'update'])->name('update');
 Route::post('delete', [PostController::class, 'delete'])->name('delete');
 Route::post('destroy/{id}', [PostController::class, 'destroy'])->name('destroy');
+Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
+
 
 Auth::routes();
 

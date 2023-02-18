@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return redirect()->route('login');
 });
-Route::get('/posts', [HomeController::class, 'index'])->name('posts');
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create', [PostController::class, 'create'])->name('create');
+
+
 //not an blade file, not a form, but rather an action of actual saving of data from the form to the database
 Route::post('store', [PostController::class, 'store'])->name('store');
 Route::get('displaypost/{id}', [PostController::class, 'displaypost'])->name('displaypost');
@@ -26,9 +32,8 @@ Route::get('edit/{id}', [PostController::class, 'edit'])->name('edit');
 Route::post('update', [PostController::class, 'update'])->name('update');
 Route::post('delete', [PostController::class, 'delete'])->name('delete');
 Route::post('destroy/{id}', [PostController::class, 'destroy'])->name('destroy');
-Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
 
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

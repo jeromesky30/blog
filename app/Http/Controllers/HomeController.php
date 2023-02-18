@@ -25,6 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         return view('posts')
-        ->with('posts', Post::all());
+        ->with('posts', Post::all()->sortDesc());
     }
 }

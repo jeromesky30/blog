@@ -66,5 +66,13 @@ public function update(Request $request, $id)
         ->with('success', 'Post updated successfully');
 }
 
+public function delete($id)
+{
+    $post = Post::findOrFail($id);
+
+    return view('delete', compact('post'));
+}
+
+
 
 }

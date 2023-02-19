@@ -1,20 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1>Delete Post</h1>
-        <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
-            @csrf
-            @method('DELETE')
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}" readonly>
-            </div>
-            <div class="form-group">
-                <label for="content">Content</label>
-                <textarea class="form-control" id="content" name="content" rows="10" readonly>{{ $post->content }}</textarea>
-            </div>
-            <button type="submit" class="btn btn-danger">Delete Post</button>
-        </form>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <!-- Admin -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">{{ __('Hi,') }} {{ Auth::user()->name }}</div>
+      </div>
+      <div class="d-flex flex-column">        
+        <a href="{{ route('home') }}" class="btn btn-primary btn-sm mt-2">All Blogs</a>
+        @if(Auth::user()->usertype == 'admin')
+        <a href="{{ route('create') }}" class="btn btn-primary btn-sm mt-2">+ New Blog</a>
+        @endif
+      </div>
     </div>
+
+    <!-- Delete Post -->
+    <div class="col-md-9 bg-light">
+      <div class="fw-bold fs-3">Are you sure you want to delete this post?</div>
+      <p>{{ $post->title }}</p>
+      <form action="{{ route('delete', $post->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete Post</button>
+        <a href="{{ route('home') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+    </div>
+  </div>
+</div>
+
 @endsection

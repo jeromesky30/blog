@@ -48,6 +48,13 @@
               <h5 class="card-title"><a href="{{ route('displaypost', $post->id) }}">{{ $post->title }}</a></h5>
               <p class="card-text">{{ Str::limit($post->content, 200) }}</p>
               <p class="card-text"><small class="text-muted">{{ $post->created_at->diffForHumans() }}</small></p>
+              <div class="d-flex justify-content-end">
+                @if(Auth::user()->usertype == 'admin')
+                <a href="{{ route('edit', $post->id) }}" class="btn btn-primary btn-sm mx-1">Edit</a>
+                <a href="{{ route('delete', $post->id) }}" class="btn btn-danger btn-sm mx-1">Delete</a>
+                @endif
+            </div>
+        </div>
               
             </div>
           </div>

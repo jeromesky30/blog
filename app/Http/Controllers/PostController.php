@@ -39,9 +39,13 @@ class PostController extends Controller
 public function edit($id)
 {
     $post = Post::find($id);
-    return view('edit', compact('post'));
-}
 
+    if (!$post) {
+        return redirect()->route('home')->with('error', 'Post not found!');
+    }
+
+    return view('edit', ['post' => $post]);
+}
 
 public function update(Request $request, $id)
 {
@@ -52,26 +56,49 @@ public function update(Request $request, $id)
 
     if ($validator->fails()) {
         return redirect()
-            ->route('posts.edit', $id)
+            ->route('edit', $id)
             ->withErrors($validator)
             ->withInput();
     }
 
     $post = Post::find($id);
+
+    if (!$post) {
+        return redirect()->route('home')->with('error', 'Post not found!');
+    }
+
     $post->title = $request->title;
     $post->content = $request->content;
     $post->save();
 
-    return redirect()->route('posts.show', $id)
+    return redirect()->route('displaypost', $id)
         ->with('success', 'Post updated successfully');
 }
 
 public function delete($id)
 {
-    $post = Post::findOrFail($id);
+    $post = Post::find($id);
 
-    return view('delete', compact('post'));
+    if (!$post) {
+        return redirect()->route('home')->with('error', 'Post not found!');
+    }
+
+    return view('delete', ['post' => $post]);
 }
+
+public function destroy($id)
+{
+    $post = Post::find($id);
+
+    if (!$post) {
+        return redirect()->route('home')->with('error', 'Post not found!');
+    }
+
+    $post->delete();
+
+    return redirect()->route('home')->with('success', 'Post deleted successfully');
+}
+
 
 
 

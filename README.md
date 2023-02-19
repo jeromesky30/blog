@@ -1,66 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+This Blogpost satisfy all of this requirements:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The blog application
+should allow users to create, read, update, and delete blog posts. Specifically, 
+- Admin can do all the  actions.
+- User can only view all blogpost from descending order and create a new blog with title and content.
+- The email and password of the admin was here:
+Email: admin@gmail.com
+Password: admin@gmail.com
+ 
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This application has the following functionalities:
+A homepage that lists all the blog posts, with the most recent post displayed first.
+- Admin and user can view all post with the most recent post displayed first.
+A page that displays a single blog post, along with its title and content.
+- When the user or admin click any link of the post or title, it display in a single post page like displaypost/1
+A page that allows users to create a new blog post. This page should have a form
+that allows the user to enter the title and content of the post.
+- User can click the create blog that navigate to a page for creating blog.
+A page that allows users to edit an existing blog post. This page should have a form
+that allows the user to update the title and content of the post.
+- When the adim navigate to edit buttom it will go to edit page that can edit the title and content and click rhe update and go to the homepage with alert the " new post has been added
+A page that allows users to delete an existing blog post.
+- When the admin wants to delete some blog it will show a page that alert if the admin is to confirm if he really want to delete.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+here are the step-by-step instructions on how to run a Laravel blog project from a GitHub repository:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Clone the repository: Start by cloning the repository by running the following command in your terminal:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+https://github.com/jeromesky30/blog.git
 
-## Laravel Sponsors
+Install dependencies: Once you've cloned the repository, navigate to the project directory and install the project dependencies by running the following command:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+composer install
+This command will install all the required PHP dependencies for the project.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Set up environment variables: Next, you need to set up the environment variables for the project. Laravel uses a file called .env to store environment variables. The repository should include a file called .env.example, which you can copy to create your own .env file.
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+cp .env.example .env
+After creating your own .env file, you need to set up your database credentials and other configuration variables.
 
-## Code of Conduct
+Generate application key: Laravel uses an application key to encrypt user sessions and other sensitive data. You can generate a new application key by running the following command:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+Copy code:
+php artisan key:generate
+Migrate the database: Next, you need to migrate the database tables for the project. Laravel uses database migrations to manage database schema changes. To migrate the database, run the following command:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Copy code:
+php artisan migrate
+This command will create the necessary database tables for the project.
 
-## License
+Seed the database (Optional): If the project includes seed data, you can populate the database by running the following command:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Copy code:
+php artisan db:seed
+This command will insert seed data into the database tables.
+
+Serve the application: Finally, you can serve the application by running the following command:
+
+Copy code:
+php artisan serve
+This command will start a local development server and provide you with a URL to access the application in your browser.
+
+That's it! You should now be able to access the Laravel blog project and start exploring its features.
+

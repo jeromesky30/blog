@@ -19,7 +19,7 @@
 
     <!-- Edit Post -->
     <div class="col-md-9 bg-light">
-      <form action="{{ route('update', $post->id) }}" method="POST">
+      <form action="{{ route('destroy', $post->id) }}" method="POST">
         @csrf
        
         <div class="mb-3">
@@ -30,7 +30,8 @@
           <label for="content" class="form-label">Content</label>
           <textarea class="form-control" id="content" name="content" rows="10">{{ $post->content }}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Update Post</button>
+        <h5>Are you sure you want to delete this post?</h5>
+        <a class="btn btn-sm btn-primary" href="{{ route('destroy', $post->id) }}">Delete Post</a>
       </form>
     </div>
   </div>

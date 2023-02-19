@@ -28,7 +28,6 @@ Route::post('/store', [PostController::class, 'store'])->name('store');
 Route::get('displaypost/{id}', [PostController::class, 'displaypost'])->name('displaypost');
 Route::get('/edit/{id}', [PostController::class, 'edit'])->name('edit'); 
 Route::post('/update/{id}', [PostController::class, 'update'])->name('update');
- 
 Route::get('/destroy/{id}', [PostController::class, 'destroy'])->name('destroy');
 
 

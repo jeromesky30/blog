@@ -53,7 +53,9 @@
            @if(Auth::user()->usertype == 'admin')
            <div class="d-flex justify-content-end">
              <a href="{{ route('edit', $post->id) }}" class="btn btn-primary btn-sm mx-1">Edit</a>
+             {{-- <a href="{{ route('delete', $post->id) }}" class="btn btn-primary btn-sm mx-1">Delete</a> --}}
              <a class="btn btn-sm btn-primary" href="{{ route('destroy', $post->id) }}">Delete Post</a>
+            
           </div>
           @endif
           </div>

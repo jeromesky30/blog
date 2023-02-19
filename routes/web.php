@@ -28,13 +28,11 @@ Route::get('/create', [PostController::class, 'create'])->name('create');
 //not an blade file, not a form, but rather an action of actual saving of data from the form to the database
 Route::post('/store', [PostController::class, 'store'])->name('store');
 Route::get('displaypost/{id}', [PostController::class, 'displaypost'])->name('displaypost');
-Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
-Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
-Route::get('/posts/{id}/delete', 'PostController@delete')->name('posts.delete');
-Route::post('/posts/{id}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
-Route::get('/posts/{id}/delete', [PostController::class, 'delete'])->name('posts.delete');
+Route::get('/edit/{id}', [PostController::class, 'edit'])->name('edit');
+Route::put('/update/{id}', [PostController::class, 'update'])->name('update');
+Route::get('/delete/{id}', [PostController::class, 'delete'])->name('delete');
 Route::post('destroy/{id}', [PostController::class, 'destroy'])->name('destroy');
-Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+
 
 
 

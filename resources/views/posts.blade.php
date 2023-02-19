@@ -40,12 +40,12 @@
       @foreach($posts as $post)
       <div class="card my-3 py-2 bg-white">
         <div class="row g-0">
-          <div class="col-md-4">
+          {{-- <div class="col-md-4">
             <img src="..." class="img-fluid rounded-start" alt="...">
-          </div>
+          </div> --}}
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">{{ $post->title }}</h5>
+              <h5 class="card-title"><a href="{{ route('displaypost', $post->id) }}">{{ $post->title }}</a></h5>
               <p class="card-text">{{ Str::limit($post->content, 200) }}</p>
               <p class="card-text"><small class="text-muted">{{ $post->created_at->diffForHumans() }}</small></p>
             </div>

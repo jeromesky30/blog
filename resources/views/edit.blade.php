@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Edit Post</h1>
 
-        <form method='POST' action={{ url('posts/update', [$post->id]) }}>
+        <form method='POST' action={{ route('update') }}> 
 
 
             @csrf

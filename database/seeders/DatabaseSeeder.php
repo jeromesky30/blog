@@ -35,14 +35,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Post::create([
-            'title' => "",
-            'content' => "", 
+            'title' => "The Science of Sleep: How to Get Better Rest and Improve Your Overall Health",
+            'content' => "Sleep is essential for our physical and mental health, but many of us struggle to get the rest we need. This post could delve into the latest research on sleep and offer tips for getting better rest, such as developing a sleep routine, managing stress and anxiety, and optimizing your sleep environment.", 
 
         ]);
 
         \App\Models\Post::create([
-            'title' => "",
-            'content' => "", 
+            'title' => "Mastering the Art of Negotiation: Strategies for Getting What You Want",
+            'content' => "Negotiation is an essential skill in both personal and professional settings. This post could provide readers with a step-by-step guide for negotiating effectively, covering topics like active listening, understanding your negotiation style, and developing win-win solutions.", 
 
         ]);
 

@@ -48,6 +48,7 @@
               <h5 class="card-title"><a href="{{ route('displaypost', $post->id) }}">{{ $post->title }}</a></h5>
               <p class="card-text">{{ Str::limit($post->content, 200) }}</p>
               <p class="card-text"><small class="text-muted">{{ $post->created_at->diffForHumans() }}</small></p>
+              
             </div>
           </div>
         </div>

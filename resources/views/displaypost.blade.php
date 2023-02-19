@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <!-- Post -->
@@ -21,4 +21,23 @@
     </div>
   </div>
 </div>
+@endsection --}}
+
+
+@extends('layouts.app')
+
+@section('content')
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Blog Post -->
+      <div class="col-md-9 bg-light">
+        <div class="fw-bold fs-3">{{ $post->title }}</div>
+        <p>{{ $post->content }}</p>
+        <p>Posted on {{ $post->created_at->format('M d, Y') }}</p>
+      </div>
+    </div>
+  </div>
 @endsection
+
+<a href="{{ route('posts.show', ['id' => $post->id]) }}">{{ $post->title }}</a>
+

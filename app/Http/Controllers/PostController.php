@@ -24,4 +24,16 @@ class PostController extends Controller
 
     return redirect()->route('home')->with('success', 'New post has been added!');
   }
+
+  public function show($id)
+{
+    $post = Post::find($id);
+
+    if (!$post) {
+        return redirect()->route('home')->with('error', 'Post not found!');
+    }
+
+    return view('displaypost', ['post' => $post]);
+}
+
 }

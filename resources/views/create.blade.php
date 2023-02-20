@@ -10,9 +10,9 @@
         <div class="card-header">{{ __('Hi,') }} {{ Auth::user()->name }}</div>
       </div>
       <div class="d-flex flex-column">
-        @if(Auth::user()->usertype == 'admin')
-        <a href="{{ route('home') }}" class="btn btn-primary btn-sm mt-2">All Blogs</a>
-        <a href="{{ route('create') }}" class="btn btn-primary btn-sm mt-2">+ New Blog</a>
+        @if(Auth::user()-> usertype =='admin' || Auth::user()-> usertype =='user' )
+       <a href="{{ route('home') }}" class="btn btn-primary btn-sm mt-2">All Blogs</a>
+<a href="{{ route('create', array()) }}" class="btn btn-primary btn-sm mt-2">+ New Blog</a>
         @endif
       </div>
     </div>

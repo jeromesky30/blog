@@ -11,7 +11,7 @@
       </div>
       <div class="d-flex flex-column">        
         <a href="{{ route('home') }}" class="btn btn-primary btn-sm mt-2">All Blogs</a>
-        @if(Auth::user()->usertype == 'admin')
+        @if(Auth::user()-> usertype =='admin' || Auth::user()-> usertype =='user' )
         <a href="{{ route('create') }}" class="btn btn-primary btn-sm mt-2">+ New Blog</a>
         @endif
       </div>
@@ -50,7 +50,7 @@
               <p class="card-text"><small class="text-muted">{{ $post->created_at->diffForHumans() }}</small></p>
              
            </div> 
-           @if(Auth::user()->usertype == 'admin')
+           @if(Auth::user()-> usertype =='admin' || Auth::user()-> usertype =='user' )
            <div class="d-flex justify-content-end">
              <a href="{{ route('edit', $post->id) }}" class="btn btn-primary btn-sm mx-1">Edit</a>
              {{-- <a href="{{ route('delete', $post->id) }}" class="btn btn-primary btn-sm mx-1">Delete</a> --}}
@@ -75,9 +75,5 @@
     </div>
 
   </div>
-{{-- </div>
-</div>
-</div> --}}
-
 
 @endsection
